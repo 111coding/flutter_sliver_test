@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:sliver_test/scroll_sliver_delegate.dart';
 import 'package:sliver_test/transition_sliver.dart';
+import 'package:sliver_test/transition_sliver_v2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,6 +46,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         controller: sc,
         headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
           return <Widget>[
+            // TransitionSliver or TransitionSliverV2
             TransitionSliver(
               // extent: 250,
               extent: 300,
