@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class TransitionSliverV2 extends StatelessWidget {
+class HardSliverAppBar extends StatelessWidget {
   final Widget avatar;
   final String username;
   final String token;
   final double extent;
 
-  const TransitionSliverV2({required this.avatar, required this.username, required this.token, this.extent = 250, Key? key}) : super(key: key);
+  HardSliverAppBar({required this.avatar, required this.username, required this.token, this.extent = 250, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SliverPersistentHeader(
       pinned: true,
-      delegate: _TransitionSliverV2Delegate(avatar: avatar, username: username, token: token, extent: extent > 200 ? extent : 200),
+      delegate: HardSliverDelegate(avatar: avatar, username: username, token: token, extent: extent > 200 ? extent : 200),
     );
   }
 }
 
-class _TransitionSliverV2Delegate extends SliverPersistentHeaderDelegate {
+class HardSliverDelegate extends SliverPersistentHeaderDelegate {
   final _avatarMarginTween = EdgeInsetsTween(
-    begin: const EdgeInsets.only(bottom: 90),
-    end: const EdgeInsets.only(left: 24, top: 44), // left margin
+    begin: EdgeInsets.only(bottom: 90),
+    end: EdgeInsets.only(left: 24, top: 44), // left margin
   );
 
   final _usernameMarginTween = EdgeInsetsTween(
-    begin: const EdgeInsets.only(bottom: 60),
-    end: const EdgeInsets.only(left: 24 + 32 + 10, top: 52), // left margin + avatar width + margin
+    begin: EdgeInsets.only(bottom: 60),
+    end: EdgeInsets.only(left: 24 + 32 + 10, top: 52), // left margin + avatar width + margin
   );
 
   final _tokenMarginTween = EdgeInsetsTween(
-    begin: const EdgeInsets.only(bottom: 20),
-    end: const EdgeInsets.only(right: 24 + 32 + 4 + 20, top: 43.0), // right margin + menu width + margin
+    begin: EdgeInsets.only(bottom: 20),
+    end: EdgeInsets.only(right: 24 + 32 + 4 + 20, top: 43.0), // right margin + menu width + margin
   );
 
   final _avatarAlignTween = AlignmentTween(begin: Alignment.bottomCenter, end: Alignment.topLeft);
@@ -44,36 +44,24 @@ class _TransitionSliverV2Delegate extends SliverPersistentHeaderDelegate {
 
   final bgColor = Colors.white;
 
-  _TransitionSliverV2Delegate({required this.avatar, required this.username, required this.token, this.extent = 250}) : assert(extent >= 200);
+  HardSliverDelegate({required this.avatar, required this.username, required this.token, this.extent = 250}) : assert(extent >= 200);
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    double tempVal = minExtent * maxExtent / 100;
+    double tempVal = 72 * maxExtent / 100;
     final progress = shrinkOffset > tempVal ? 1.0 : shrinkOffset / tempVal;
-    // final progress = shrinkOffset > tempVal ? 1.0 : shrinkOffset / tempVal;
-    // print(shrinkOffset / maxExtent);
-    final double avatarProgress = progress >= 1 / 3 ? 1 : progress * 3;
-    final double usernameProgress = progress < 1 / 3
-        ? 0
-        : progress > 2 / 3
-            ? 1
-            : (progress - 1 / 3) * 3;
-    final double tokenProgress = progress < 2 / 3 ? 0 : (progress - 2 / 3) * 3;
 
     // y = -(x^2)
 
-    final avatarMargin = _avatarMarginTween.lerp(avatarProgress);
-    final usernameMargin = _usernameMarginTween.lerp(usernameProgress);
-    final tokenMargin = _tokenMarginTween.lerp(tokenProgress);
+    print(tempVal);
+    final avatarMargin = _avatarMarginTween.lerp(progress);
+    final usernameMargin = _usernameMarginTween.lerp(progress);
+    final tokenMargin = _tokenMarginTween.lerp(progress);
 
-    final avatarAlign = _avatarAlignTween.lerp(avatarProgress);
-    final usernameAlign = _avatarAlignTween.lerp(usernameProgress);
-    final tokenAlign = _tokenAlignTween.lerp(tokenProgress);
-    // print("$avatarAlign $avatarProgress");
-    // print("$usernameAlign $usernameProgress");
-    // print("$tokenMargin $tokenAlign $tokenProgress");
+    final avatarAlign = _avatarAlignTween.lerp(progress);
+    final tokenAlign = _tokenAlignTween.lerp(progress);
 
-    final double avatarSize = (1 - avatarProgress) * 100 + 32; // 최대사이즈 132 최소사이즈 32
+    final avatarSize = (1 - progress) * 100 + 32; // 최대사이즈 132 최소사이즈 32
 
     return Container(
       color: bgColor,
@@ -106,7 +94,7 @@ class _TransitionSliverV2Delegate extends SliverPersistentHeaderDelegate {
           Padding(
             padding: usernameMargin,
             child: Align(
-              alignment: usernameAlign,
+              alignment: avatarAlign,
               child: Text(
                 username,
               ),
@@ -154,7 +142,7 @@ class _TransitionSliverV2Delegate extends SliverPersistentHeaderDelegate {
   double get minExtent => 80;
 
   @override
-  bool shouldRebuild(_TransitionSliverV2Delegate oldDelegate) {
+  bool shouldRebuild(HardSliverDelegate oldDelegate) {
     return avatar != oldDelegate.avatar || username != oldDelegate.username || token != oldDelegate.token;
   }
 }
