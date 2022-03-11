@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
-import 'package:sliver_test/routing_page/component/routing_page_body.dart';
+import 'package:sliver_test/view/pages/routing_page/component/routing_page_body.dart';
 
 class RoutingPage extends StatefulWidget {
   const RoutingPage({Key? key}) : super(key: key);

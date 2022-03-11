@@ -8,7 +8,7 @@ enum AppRouter {
 }
 
 class AppNavigator {
-  // 뒤로가기
+  /// 뒤로가기
   static void pop<T extends Object?>([T? result]) => Navigator.of(navigatorKey.currentState!.context).pop();
 }
 
@@ -24,5 +24,6 @@ extension AppRouterExtension on AppRouter {
   /// 라우팅(이전페이지 모두 pop 후 push)
   Future<T?> popAllPush<T extends Object?>({Object? arguments}) => navigatorKey.currentState!.pushNamedAndRemoveUntil(name, (route) => false, arguments: arguments);
 
+  /// 뒤로가기
   static void pop<T extends Object?>([T? result]) => Navigator.of(navigatorKey.currentState!.context).pop();
 }

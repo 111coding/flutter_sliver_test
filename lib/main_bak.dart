@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sliver_test/sliver_page/sliver_delegate/scroll_sliver_delegate.dart';
-import 'dart:math' as math;
-
-import 'package:sliver_test/sliver_page/sliver_delegate/transition_sliver.dart';
+import 'package:sliver_test/view/pages/sliver_page/sliver_delegate/scroll_sliver_delegate.dart';
+import 'package:sliver_test/view/pages/sliver_page/sliver_delegate/transition_sliver.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);

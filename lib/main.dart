@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/route/app_routes.dart';
-import 'package:sliver_test/routing_page/routing_page.dart';
+import 'package:sliver_test/view/pages/routing_page/routing_page.dart';
 
 void main() {
   runApp(const MyApp());
