@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/color_pallete.dart';
-import 'package:sliver_test/view/components/hard_sliver_app_bar.dart';
+import 'package:sliver_test/view/components/sliver/hard_sliver_app_bar.dart';
 import 'package:sliver_test/view/pages/sliver_page/sliver_delegate/scroll_sliver_delegate.dart';
 
 class HardSliverPage extends StatefulWidget {

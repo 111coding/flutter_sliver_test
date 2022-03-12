@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'package:sliver_test/view/components/easy_sliver_app_bar.dart';
+import 'package:sliver_test/view/components/sliver/easy_sliver_app_bar.dart';
 
 class EasySliverPage extends StatefulWidget {
   const EasySliverPage({Key? key}) : super(key: key);
