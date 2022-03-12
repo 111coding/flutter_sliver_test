@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/color_pallete.dart';
+import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
+import 'package:sliver_test/view/components/btn/icon_btn_scan.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
@@ -134,11 +136,11 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           // 스캐너 아이콘
           Positioned(
             top: topPaddingHeight,
-            right: paddingRight + 30, // MenuIcon Width + margin
+            right: paddingRight + 40, // MenuIcon Width + margin
             height: toolbarHeight,
             child: Opacity(
               opacity: 1 - offset,
-              child: Icon(Icons.qr_code, color: Colors.white),
+              child: const IconBtnScan(),
             ),
           ),
           // 햄버거 메뉴
@@ -146,7 +148,7 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             top: topPaddingHeight,
             right: paddingRight,
             height: toolbarHeight,
-            child: Icon(Icons.menu, color: Colors.white),
+            child: const IconBtnMenu(),
           ),
           // 프로파일 이미지
           Padding(
@@ -181,7 +183,7 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
             child: Container(
               color: Colors.grey[50],
               width: double.infinity,
-              height: 1,
+              height: offset == 1 ? 0 : 1,
               margin: EdgeInsets.only(left: paddingLeft, right: paddingRight),
             ),
           ),

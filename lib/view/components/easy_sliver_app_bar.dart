@@ -2,6 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/color_pallete.dart';
+import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
+import 'package:sliver_test/view/components/btn/icon_btn_scan.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
@@ -107,10 +109,8 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                       ),
                       const SizedBox(width: 6),
                       TokenClipboardBox(token: token),
-                      const SizedBox(width: 4),
-                      const Icon(Icons.qr_code_scanner),
-                      const SizedBox(width: 4),
-                      const Icon(Icons.menu),
+                      const SizedBox(width: 16),
+                      const IconBtnMenu(),
                     ],
                   ),
                 ),
@@ -118,14 +118,17 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                 Opacity(
                   opacity: offset,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset(
                         "assets/image/logo.png",
                         width: 180,
                       ),
-                      Icon(Icons.menu),
+                      const Spacer(),
+                      const IconBtnScan(),
+                      const SizedBox(width: 16),
+                      const IconBtnMenu(),
                     ],
                   ),
                 ),
