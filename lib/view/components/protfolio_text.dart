@@ -5,10 +5,12 @@ class PortfolioText extends StatelessWidget {
     Key? key,
     required this.name,
     required this.fontSize,
+    this.height,
   }) : super(key: key);
 
   final String name;
   final double fontSize;
+  final double? height;
 
   @override
   Widget build(BuildContext context) => Text(

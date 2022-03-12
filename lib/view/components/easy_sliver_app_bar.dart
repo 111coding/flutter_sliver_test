@@ -31,7 +31,14 @@ class EasySliverAppBar extends StatelessWidget {
     final topPaddingHeight = MediaQuery.of(context).padding.top;
     return SliverPersistentHeader(
       pinned: true,
-      delegate: _EasySliverAppBarDelegate(profileImage: profileImage, username: username, token: token, topPaddingHeight: topPaddingHeight),
+      delegate: _EasySliverAppBarDelegate(
+        profileImage: profileImage,
+        username: username,
+        token: token,
+        expandedHeight: expandedHeight,
+        toolbarHeight: toolbarHeight,
+        topPaddingHeight: topPaddingHeight,
+      ),
     );
   }
 }
@@ -49,8 +56,6 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final Image profileImage;
   final String username;
   final String token;
-
-  final bgColor = Colors.white;
 
   _EasySliverAppBarDelegate({
     required this.profileImage,

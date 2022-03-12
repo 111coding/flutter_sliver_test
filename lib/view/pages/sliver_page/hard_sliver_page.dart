@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sliver_test/const/color_pallete.dart';
+import 'package:sliver_test/view/components/hard_sliver_app_bar.dart';
 import 'package:sliver_test/view/pages/sliver_page/sliver_delegate/scroll_sliver_delegate.dart';
-import 'package:sliver_test/view/pages/sliver_page/sliver_delegate/transition_sliver.dart';
 
 class HardSliverPage extends StatefulWidget {
   const HardSliverPage({Key? key}) : super(key: key);
@@ -18,22 +19,11 @@ class _HardSliverPageState extends State<HardSliverPage> with TickerProviderStat
         headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
           return <Widget>[
             // TransitionSliver or TransitionSliverV2
-            TransitionSliver(
-              // extent: 250,
-              extent: 300,
-
-              avatar: Container(
-                width: 100,
-                height: 100,
-                decoration: const BoxDecoration(
-                  color: Colors.amber,
-                  shape: BoxShape.circle,
-                ),
-              ),
-              username: "Lee J",
-              token: "faighdkghdklsfaskf",
+            HardSliverAppBar(
+              profileImage: Image.network("https://cdn.pixabay.com/photo/2019/02/06/09/36/lionel-messi-3978746__340.jpg", fit: BoxFit.fill),
+              username: "Messi",
+              token: "vsnkvsdnvklsnvklsjklvds",
             ),
-
             // 스크롤 될곳
             SliverFixedExtentList(
               itemExtent: 200.0,
@@ -44,7 +34,7 @@ class _HardSliverPageState extends State<HardSliverPage> with TickerProviderStat
                     child: Column(
                       children: [
                         Container(
-                          color: Colors.red,
+                          decoration: BoxDecoration(gradient: ColorPallete.mainLinearGradient),
                           width: double.infinity,
                           height: 200,
                           child: Column(
