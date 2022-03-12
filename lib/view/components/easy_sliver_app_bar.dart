@@ -29,6 +29,8 @@ class EasySliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final topPaddingHeight = MediaQuery.of(context).padding.top;
+    final paddingLeft = MediaQuery.of(context).padding.left + 24;
+    final paddingRight = MediaQuery.of(context).padding.right + 24;
     return SliverPersistentHeader(
       pinned: true,
       delegate: _EasySliverAppBarDelegate(
@@ -38,6 +40,8 @@ class EasySliverAppBar extends StatelessWidget {
         expandedHeight: expandedHeight,
         toolbarHeight: toolbarHeight,
         topPaddingHeight: topPaddingHeight,
+        paddingLeft: paddingLeft,
+        paddingRight: paddingRight,
       ),
     );
   }
@@ -53,6 +57,9 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   /// StatusBar
   final double topPaddingHeight;
 
+  final double paddingLeft;
+  final double paddingRight;
+
   final Image profileImage;
   final String username;
   final String token;
@@ -62,6 +69,8 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     required this.username,
     required this.token,
     required this.topPaddingHeight,
+    required this.paddingLeft,
+    required this.paddingRight,
     this.expandedHeight = 270,
     this.toolbarHeight = 56,
   });
@@ -74,7 +83,7 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
       decoration: const BoxDecoration(
         gradient: ColorPallete.mainLinearGradient,
       ),
-      padding: EdgeInsets.only(top: topPaddingHeight, left: 24, right: 24),
+      padding: EdgeInsets.only(top: topPaddingHeight, left: paddingLeft, right: paddingRight),
       child: Column(
         children: [
           // 상단바
@@ -158,7 +167,5 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   double get minExtent => toolbarHeight + topPaddingHeight;
 
   @override
-  bool shouldRebuild(_EasySliverAppBarDelegate oldDelegate) {
-    return profileImage != oldDelegate.profileImage || username != oldDelegate.username || token != oldDelegate.token;
-  }
+  bool shouldRebuild(_EasySliverAppBarDelegate oldDelegate) => true;
 }

@@ -29,6 +29,8 @@ class HardSliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final topPaddingHeight = MediaQuery.of(context).padding.top;
+    final paddingLeft = MediaQuery.of(context).padding.left + 24;
+    final paddingRight = MediaQuery.of(context).padding.right + 24;
     return SliverPersistentHeader(
       pinned: true,
       delegate: _HardSliverAppBarDelegate(
@@ -37,6 +39,8 @@ class HardSliverAppBar extends StatelessWidget {
         token: token,
         expandedHeight: expandedHeight,
         toolbarHeight: toolbarHeight,
+        paddingLeft: paddingLeft,
+        paddingRight: paddingRight,
         topPaddingHeight: topPaddingHeight,
       ),
     );
@@ -49,6 +53,8 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
     required this.username,
     required this.token,
     required this.topPaddingHeight,
+    required this.paddingLeft,
+    required this.paddingRight,
     this.expandedHeight = 270,
     this.toolbarHeight = 56,
   });
@@ -66,24 +72,25 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
   final String username;
   final String token;
 
-  final _horizontalPadding = 24.0;
+  final double paddingLeft;
+  final double paddingRight;
 
   // 프로필이미지 시작위치와 끝위치
   late final _profileImageMarginTween = EdgeInsetsTween(
     begin: const EdgeInsets.only(bottom: 100),
-    end: EdgeInsets.only(left: _horizontalPadding, top: topPaddingHeight), // left margin
+    end: EdgeInsets.only(left: paddingLeft, top: topPaddingHeight), // left margin
   );
 
   // 유저네임 시작위치와 끝위치
   late final _usernameMarginTween = EdgeInsetsTween(
     begin: const EdgeInsets.only(bottom: 60),
-    end: EdgeInsets.only(left: _horizontalPadding + 40 + 6, top: topPaddingHeight), // left margin + avatar width + margin
+    end: EdgeInsets.only(left: paddingLeft + 40 + 6, top: topPaddingHeight), // left margin + avatar width + margin
   );
 
   // 토큰위젯 시작위치와 끝위치
   late final _tokenMarginTween = EdgeInsetsTween(
     begin: const EdgeInsets.only(bottom: 20),
-    end: EdgeInsets.only(right: _horizontalPadding + 30, top: topPaddingHeight), // right margin + menu width + margin
+    end: EdgeInsets.only(right: paddingRight + 30, top: topPaddingHeight), // right margin + menu width + margin
   );
 
   final _profileImageAlignTween = AlignmentTween(begin: Alignment.bottomCenter, end: Alignment.centerLeft);
@@ -114,7 +121,7 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           // 로고
           Positioned(
             top: topPaddingHeight,
-            left: _horizontalPadding,
+            left: paddingLeft,
             height: toolbarHeight,
             child: Opacity(
               opacity: 1 - offset,
@@ -127,7 +134,7 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           // 스캐너 아이콘
           Positioned(
             top: topPaddingHeight,
-            right: _horizontalPadding + 30, // MenuIcon Width + margin
+            right: paddingRight + 30, // MenuIcon Width + margin
             height: toolbarHeight,
             child: Opacity(
               opacity: 1 - offset,
@@ -137,7 +144,7 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           // 햄버거 메뉴
           Positioned(
             top: topPaddingHeight,
-            right: _horizontalPadding,
+            right: paddingRight,
             height: toolbarHeight,
             child: Icon(Icons.menu, color: Colors.white),
           ),
@@ -175,7 +182,7 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
               color: Colors.grey[50],
               width: double.infinity,
               height: 1,
-              margin: EdgeInsets.symmetric(horizontal: _horizontalPadding),
+              margin: EdgeInsets.only(left: paddingLeft, right: paddingRight),
             ),
           ),
         ],

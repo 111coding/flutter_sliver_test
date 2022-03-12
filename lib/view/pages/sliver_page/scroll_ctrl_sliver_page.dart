@@ -24,7 +24,7 @@ class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with Ticker
     return Scaffold(
         body: CustomScrollView(
       controller: scrollController,
-      physics: ClampingScrollPhysics(),
+      physics: const ClampingScrollPhysics(),
       slivers: [
         ScrollSliverAppBar(
           scrollController: scrollController,
