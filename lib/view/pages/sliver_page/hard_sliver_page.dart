@@ -41,17 +41,21 @@ class _HardSliverPageState extends State<HardSliverPage> with TickerProviderStat
                 [
                   Container(
                     color: Colors.white,
-                    child: SingleChildScrollView(
-                      physics: const NeverScrollableScrollPhysics(),
-                      child: Column(
-                        children: [
-                          Container(
-                            color: Colors.red,
-                            width: double.infinity,
-                            height: 200,
+                    child: Column(
+                      children: [
+                        Container(
+                          color: Colors.red,
+                          width: double.infinity,
+                          height: 200,
+                          child: Column(
+                            children: [
+                              Text("1"),
+                              Text("2"),
+                              Text("3"),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
                   )
                 ],

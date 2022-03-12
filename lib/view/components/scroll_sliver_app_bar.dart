@@ -1,13 +1,11 @@
 import 'dart:math';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sliver_test/const/color_pallete.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
-import 'package:sliver_test/view/components/main_button_box.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
 
-/// toolBarHeight 56 고정(kToolbarHeight)
 class ScrollSliverAppBar extends StatefulWidget {
   const ScrollSliverAppBar({
     Key? key,
@@ -47,7 +45,7 @@ class _ScrollSliverAppBarState extends State<ScrollSliverAppBar> {
 
     scrollController.addListener(() {
       setState(() {
-        final newOffset = scrollController.offset / (widget.expandedHeight - kToolbarHeight);
+        final newOffset = scrollController.offset / (widget.expandedHeight - widget.toolbarHeight);
         _appbarOffset = 1 - min(1, newOffset);
       });
     });
@@ -110,7 +108,7 @@ class _ScrollSliverAppBarState extends State<ScrollSliverAppBar> {
       ],
       flexibleSpace: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(colors: [Colors.red, Colors.orange]),
+          gradient: ColorPallete.mainLinearGradient,
         ),
         child: Opacity(
           opacity: _appbarOffset,
