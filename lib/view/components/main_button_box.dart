@@ -9,7 +9,7 @@ class MainButtonBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
+      constraints: const BoxConstraints(maxWidth: 600),
       height: 100,
       decoration: BoxDecoration(
         color: ColorPallete.lightGrey,

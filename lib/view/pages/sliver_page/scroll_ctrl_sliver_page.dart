@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:sliver_test/view/components/sliver/middle_sliver_app_bar.dart';
 import 'dart:math' as math;
 
 import 'package:sliver_test/view/components/sliver/scroll_sliver_app_bar.dart';
+import 'package:sliver_test/view/components/sliver/tab_sliver_app_bar.dart';
 
 class ScrollCtrlSliverPage extends StatefulWidget {
   const ScrollCtrlSliverPage({Key? key}) : super(key: key);
@@ -15,7 +17,7 @@ class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with Ticker
     ..addListener(() {
       // print(sc.offset + MediaQuery.of(context).padding.top);
     });
-  late TabController tabController = TabController(length: 2, vsync: this);
+  late TabController tabController = TabController(length: 3, vsync: this);
 
   ScrollController scrollController = ScrollController();
 
@@ -32,6 +34,11 @@ class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with Ticker
           username: "Messi",
           token: "vsnkvsdnvklsnvklsjklvds",
         ),
+        // 스크롤 될곳
+        const MiddleSliverAppBar(),
+
+        // 고정될곳
+        TabSliverAppBar(tabController: tabController),
         SliverList(
           delegate: SliverChildListDelegate([
             Container(

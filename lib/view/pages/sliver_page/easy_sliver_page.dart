@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:sliver_test/view/components/sliver/easy_sliver_app_bar.dart';
+import 'package:sliver_test/view/components/sliver/middle_sliver_app_bar.dart';
+import 'package:sliver_test/view/components/sliver/tab_sliver_app_bar.dart';
 
 class EasySliverPage extends StatefulWidget {
   const EasySliverPage({Key? key}) : super(key: key);
@@ -11,7 +13,7 @@ class EasySliverPage extends StatefulWidget {
 }
 
 class _EasySliverPageState extends State<EasySliverPage> with TickerProviderStateMixin {
-  late TabController tabController = TabController(length: 2, vsync: this);
+  late TabController tabController = TabController(length: 3, vsync: this);
 
   double appbarHeight = 300;
   double fixedHeight = 56;
@@ -28,6 +30,11 @@ class _EasySliverPageState extends State<EasySliverPage> with TickerProviderStat
             username: "Messi",
             token: "vsnkvsdnvklsnvklsjklvds",
           ),
+          // 스크롤 될곳
+          const MiddleSliverAppBar(),
+
+          // 고정될곳
+          TabSliverAppBar(tabController: tabController),
           SliverList(
             delegate: SliverChildListDelegate([
               Container(
