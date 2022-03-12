@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/route/app_router.dart';
+import 'package:sliver_test/view/components/image/profile_image.dart';
 
 class RoutingPageBody extends StatelessWidget {
   const RoutingPageBody({Key? key}) : super(key: key);

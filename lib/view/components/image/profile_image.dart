@@ -31,14 +31,18 @@ class ProfileImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1,
-      child: SizedBox(
-        width: diameter,
-        height: diameter,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(diameter == double.infinity ? 10000 : diameter),
-          child: image,
+    // CircleAvartar는 AnimatedContainer라서 추후 애니메이션효과 커스텀하기 부적합
+    return SizedBox(
+      width: diameter,
+      child: AspectRatio(
+        aspectRatio: 1,
+        child: SizedBox(
+          width: diameter,
+          height: diameter,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(diameter == double.infinity ? 10000 : diameter),
+            child: image,
+          ),
         ),
       ),
     );

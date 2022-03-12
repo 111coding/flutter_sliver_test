@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+import 'package:sliver_test/view/components/scroll_sliver_app_bar.dart';
+
 class ScrollCtrlSliverPage extends StatefulWidget {
   const ScrollCtrlSliverPage({Key? key}) : super(key: key);
 
@@ -15,74 +17,41 @@ class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with Ticker
     });
   late TabController tabController = TabController(length: 2, vsync: this);
 
-  double appbarHeight = 300;
-  double fixedHeight = 56;
-  double appbarOffset = 1;
-
-  late ScrollController scrollController = ScrollController()
-    ..addListener(() {
-      final newOffset = (appbarHeight - scrollController.offset - 56) / (appbarHeight - 56);
-      appbarOffset = newOffset < 0 ? 0 : newOffset;
-      print(appbarOffset);
-      setState(() {});
-    });
+  ScrollController scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          child: CustomScrollView(
-        controller: scrollController,
-        physics: ClampingScrollPhysics(),
-        slivers: [
-          SliverAppBar(
-            pinned: true,
-            actions: [
-              Container(
-                width: MediaQuery.of(context).size.width,
-                height: fixedHeight,
-                color: Colors.blue,
-                child: Opacity(
-                  opacity: 1 - appbarOffset,
-                  child: Row(
-                    children: [
-                      Text("PORTFOLIO"),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-            flexibleSpace: Opacity(
-              opacity: appbarOffset,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Container(width: 150 * appbarOffset, height: 150 * appbarOffset, decoration: const BoxDecoration(color: Colors.amber, shape: BoxShape.circle)),
-                  // Container(width: 100, height: 100, decoration: const BoxDecoration(color: Colors.amber, shape: BoxShape.circle)),
-                  Text("2"),
-                  Text("3"),
-                ],
-              ),
+        body: CustomScrollView(
+      controller: scrollController,
+      physics: ClampingScrollPhysics(),
+      slivers: [
+        ScrollSliverAppBar(
+          scrollController: scrollController,
+          profileImage: Image.network("https://cdn.pixabay.com/photo/2019/02/06/09/36/lionel-messi-3978746__340.jpg", fit: BoxFit.fill),
+          username: "Messi",
+          token: "vsnkvsdnvklsnvklsjklvds",
+        ),
+        SliverList(
+          delegate: SliverChildListDelegate([
+            Container(
+              width: double.infinity,
+              height: 400,
+              color: Colors.blue,
             ),
-            backgroundColor: Colors.red,
-            expandedHeight: appbarHeight,
-          ),
-          SliverList(
-            delegate: SliverChildListDelegate([
-              Container(
-                width: double.infinity,
-                height: 400,
-                color: Colors.blue,
-              ),
-              Container(
-                width: double.infinity,
-                height: 400,
-                color: Colors.green,
-              )
-            ]),
-          ),
-        ],
-      )),
-    );
+            Container(
+              width: double.infinity,
+              height: 400,
+              color: Colors.green,
+            ),
+            Container(
+              width: double.infinity,
+              height: 400,
+              color: Colors.green,
+            )
+          ]),
+        ),
+      ],
+    ));
   }
 }
