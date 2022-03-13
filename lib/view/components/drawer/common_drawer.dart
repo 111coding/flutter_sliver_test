@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliver_test/const/color_pallete.dart';
+import 'package:sliver_test/route/app_router.dart';
 import 'package:sliver_test/view/components/btn/grey_button.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_back.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_edit.dart';
@@ -34,7 +35,14 @@ class CommonDrawer extends StatelessWidget {
           const SizedBox(height: 6),
           GreyButton(text: "Sync with mobile", iconPath: "assets/image/icon-back.png", onTap: () {}, margin: const EdgeInsets.symmetric(horizontal: 24)),
           const SizedBox(height: 6),
-          GreyButton(text: "Setting", iconPath: "assets/image/icon-back.png", onTap: () {}, margin: const EdgeInsets.symmetric(horizontal: 24)),
+          GreyButton(
+            text: "Setting",
+            iconPath: "assets/image/icon-back.png",
+            onTap: () {
+              AppRouter.settingPage.push();
+            },
+            margin: const EdgeInsets.symmetric(horizontal: 24),
+          ),
         ],
       ),
     );

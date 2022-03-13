@@ -5,6 +5,7 @@ enum AppRouter {
   scrollCtrlSliverPage,
   easySliverPage,
   hardSliverPage,
+  settingPage,
 }
 
 class AppNavigator {
