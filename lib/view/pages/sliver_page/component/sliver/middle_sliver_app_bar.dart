@@ -61,17 +61,35 @@ class MiddleSliverAppBar extends StatelessWidget {
                 Container(
                   decoration: const BoxDecoration(gradient: ColorPallete.mainLinearGradient),
                   width: double.infinity,
-                  height: 200,
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Column(
                     children: [
                       const SizedBox(height: 20),
                       _coinBox(),
                       const SizedBox(height: 20),
-                      const MainButtonBox(),
                     ],
                   ),
                 ),
+                Expanded(
+                    child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: [
+                    Column(
+                      children: [
+                        Expanded(
+                            child: Container(
+                          decoration: const BoxDecoration(gradient: ColorPallete.mainLinearGradient),
+                        )),
+                        const Spacer(),
+                      ],
+                    ),
+                    Container(
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      child: const MainButtonBox(),
+                    )
+                  ],
+                )),
               ],
             ),
           )
