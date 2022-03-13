@@ -9,7 +9,7 @@ class RoutingPageBody extends StatelessWidget {
     return ListView.separated(
       separatorBuilder: (context, index) => const SizedBox(height: 10),
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-      itemCount: AppRouter.values.length,
+      itemCount: 3,
       itemBuilder: (context, index) {
         var route = AppRouter.values[index];
         return ElevatedButton(
