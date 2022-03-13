@@ -6,6 +6,7 @@ abstract class AssetButton extends StatelessWidget {
 
   String get path;
   void onTap();
+  Color get color => Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ abstract class AssetButton extends StatelessWidget {
         child: SizedBox(
           width: 24,
           height: 24,
-          child: Image.asset(path, color: Colors.white),
+          child: Image.asset(path, color: color),
         ),
       ),
     );

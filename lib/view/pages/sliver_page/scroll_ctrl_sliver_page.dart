@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sliver_test/domain/model/user.dart';
+import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
+import 'package:sliver_test/view/components/drawer/common_drawer.dart';
 import 'package:sliver_test/view/components/sliver/middle_sliver_app_bar.dart';
 import 'dart:math' as math;
 
@@ -13,10 +16,6 @@ class ScrollCtrlSliverPage extends StatefulWidget {
 }
 
 class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with TickerProviderStateMixin {
-  late ScrollController sc = ScrollController()
-    ..addListener(() {
-      // print(sc.offset + MediaQuery.of(context).padding.top);
-    });
   late TabController tabController = TabController(length: 3, vsync: this);
 
   ScrollController scrollController = ScrollController();
@@ -24,41 +23,47 @@ class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with Ticker
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: IconBtnMenu.scaffoldKey,
+        endDrawer: CommonDrawer(
+          profileImage: Image.network(User.test().profileSrc, fit: BoxFit.fill),
+          username: User.test().username,
+          token: User.test().token,
+        ),
         body: CustomScrollView(
-      controller: scrollController,
-      physics: const ClampingScrollPhysics(),
-      slivers: [
-        ScrollSliverAppBar(
-          scrollController: scrollController,
-          profileImage: Image.network("https://cdn.pixabay.com/photo/2019/02/06/09/36/lionel-messi-3978746__340.jpg", fit: BoxFit.fill),
-          username: "Messi",
-          token: "vsnkvsdnvklsnvklsjklvds",
-        ),
-        // 스크롤 될곳
-        const MiddleSliverAppBar(),
+          controller: scrollController,
+          physics: const ClampingScrollPhysics(),
+          slivers: [
+            ScrollSliverAppBar(
+              scrollController: scrollController,
+              profileImage: Image.network(User.test().profileSrc, fit: BoxFit.fill),
+              username: User.test().username,
+              token: User.test().token,
+            ),
+            // 스크롤 될곳
+            const MiddleSliverAppBar(),
 
-        // 고정될곳
-        TabSliverAppBar(tabController: tabController),
-        SliverList(
-          delegate: SliverChildListDelegate([
-            Container(
-              width: double.infinity,
-              height: 400,
-              color: Colors.blue,
+            // 고정될곳
+            TabSliverAppBar(tabController: tabController),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                Container(
+                  width: double.infinity,
+                  height: 400,
+                  color: Colors.blue,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 400,
+                  color: Colors.green,
+                ),
+                Container(
+                  width: double.infinity,
+                  height: 400,
+                  color: Colors.green,
+                )
+              ]),
             ),
-            Container(
-              width: double.infinity,
-              height: 400,
-              color: Colors.green,
-            ),
-            Container(
-              width: double.infinity,
-              height: 400,
-              color: Colors.green,
-            )
-          ]),
-        ),
-      ],
-    ));
+          ],
+        ));
   }
 }

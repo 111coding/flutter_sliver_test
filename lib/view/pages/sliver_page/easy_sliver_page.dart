@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sliver_test/domain/model/user.dart';
+import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
+import 'package:sliver_test/view/components/drawer/common_drawer.dart';
 import 'dart:math' as math;
 
 import 'package:sliver_test/view/components/sliver/easy_sliver_app_bar.dart';
@@ -22,13 +25,19 @@ class _EasySliverPageState extends State<EasySliverPage> with TickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: IconBtnMenu.scaffoldKey,
+      endDrawer: CommonDrawer(
+        profileImage: Image.network(User.test().profileSrc, fit: BoxFit.fill),
+        username: User.test().username,
+        token: User.test().token,
+      ),
       body: CustomScrollView(
-        physics: ClampingScrollPhysics(),
+        physics: const ClampingScrollPhysics(),
         slivers: [
           EasySliverAppBar(
-            profileImage: Image.network("https://cdn.pixabay.com/photo/2019/02/06/09/36/lionel-messi-3978746__340.jpg", fit: BoxFit.fill),
-            username: "Messi",
-            token: "vsnkvsdnvklsnvklsjklvds",
+            profileImage: Image.network(User.test().profileSrc, fit: BoxFit.fill),
+            username: User.test().username,
+            token: User.test().token,
           ),
           // 스크롤 될곳
           const MiddleSliverAppBar(),
