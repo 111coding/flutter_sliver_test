@@ -11,17 +11,8 @@ class GameView extends StatelessWidget {
     return Align(
       child: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: ConstValue.maxWidth),
-        child: ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
-          itemCount: 100,
-          itemBuilder: (context, index) {
-            return ElevatedButton(
-              onPressed: () {
-                //
-              },
-              child: Text("$index"),
-            );
-          },
+        child: const Center(
+          child: Text("Game Area"),
         ),
       ),
     );

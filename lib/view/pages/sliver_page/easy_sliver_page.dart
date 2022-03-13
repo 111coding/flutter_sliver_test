@@ -7,9 +7,9 @@ import 'dart:math' as math;
 import 'package:sliver_test/view/components/sliver/easy_sliver_app_bar.dart';
 import 'package:sliver_test/view/components/sliver/middle_sliver_app_bar.dart';
 import 'package:sliver_test/view/components/sliver/tab_sliver_app_bar.dart';
-import 'package:sliver_test/view/pages/sliver_page/component/art_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/art/art_view.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/game_view.dart';
-import 'package:sliver_test/view/pages/sliver_page/component/token_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/token/token_view.dart';
 
 class EasySliverPage extends StatefulWidget {
   const EasySliverPage({Key? key}) : super(key: key);

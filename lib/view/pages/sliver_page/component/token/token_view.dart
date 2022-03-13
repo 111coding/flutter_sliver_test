@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/value.dart';
 import 'package:sliver_test/dummy_data/dummy_data.dart';
-import 'package:sliver_test/route/app_router.dart';
-import 'package:sliver_test/view/components/image/profile_image.dart';
-import 'package:sliver_test/view/pages/sliver_page/component/token_item.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/token/token_item.dart';
 
 class TokenView extends StatelessWidget {
   const TokenView({Key? key}) : super(key: key);

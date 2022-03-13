@@ -10,7 +10,7 @@ class TokenItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: 60,
       child: ElevatedButton(
         onPressed: () {},
         style: ButtonStyle(
@@ -36,7 +36,7 @@ class TokenItem extends StatelessWidget {
             ),
             const SizedBox(width: 10),
             Text(
-              "${token.amount} ${token.name}",
+              "${token.amount.floor()} ${token.name}",
               style: const TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.bold),
             ),
             const Spacer(),

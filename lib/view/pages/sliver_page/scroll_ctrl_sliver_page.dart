@@ -3,13 +3,12 @@ import 'package:sliver_test/domain/model/user.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
 import 'package:sliver_test/view/components/drawer/common_drawer.dart';
 import 'package:sliver_test/view/components/sliver/middle_sliver_app_bar.dart';
-import 'dart:math' as math;
 
 import 'package:sliver_test/view/components/sliver/scroll_sliver_app_bar.dart';
 import 'package:sliver_test/view/components/sliver/tab_sliver_app_bar.dart';
-import 'package:sliver_test/view/pages/sliver_page/component/art_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/art/art_view.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/game_view.dart';
-import 'package:sliver_test/view/pages/sliver_page/component/token_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/token/token_view.dart';
 
 class ScrollCtrlSliverPage extends StatefulWidget {
   const ScrollCtrlSliverPage({Key? key}) : super(key: key);
