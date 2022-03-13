@@ -52,7 +52,6 @@ class _ArtDetailPageState extends State<ArtDetailPage> {
         onCollectableChanged: (int index) {
           setState(() {
             currentCollectableIndex = index;
-            ;
           });
         },
       ),

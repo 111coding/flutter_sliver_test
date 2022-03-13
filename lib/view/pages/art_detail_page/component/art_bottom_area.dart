@@ -2,10 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sliver_test/domain/model/collectable.dart';
-import 'package:sliver_test/dummy_data/dummy_data.dart';
 import 'package:sliver_test/view/components/image/collectable_image.dart';
 import 'package:sliver_test/view/components/line.dart';
-import 'package:sliver_test/view/pages/sliver_page/component/art/ntf_grid.dart';
 
 class ArtBottomArea extends StatelessWidget {
   const ArtBottomArea({
