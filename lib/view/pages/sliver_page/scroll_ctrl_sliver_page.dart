@@ -7,6 +7,9 @@ import 'dart:math' as math;
 
 import 'package:sliver_test/view/components/sliver/scroll_sliver_app_bar.dart';
 import 'package:sliver_test/view/components/sliver/tab_sliver_app_bar.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/art_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/game_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/token_view.dart';
 
 class ScrollCtrlSliverPage extends StatefulWidget {
   const ScrollCtrlSliverPage({Key? key}) : super(key: key);
@@ -29,41 +32,33 @@ class _ScrollCtrlSliverPageState extends State<ScrollCtrlSliverPage> with Ticker
           username: User.test().username,
           token: User.test().token,
         ),
-        body: CustomScrollView(
+        body: NestedScrollView(
           controller: scrollController,
           physics: const ClampingScrollPhysics(),
-          slivers: [
-            ScrollSliverAppBar(
-              scrollController: scrollController,
-              profileImage: Image.network(User.test().profileSrc, fit: BoxFit.fill),
-              username: User.test().username,
-              token: User.test().token,
-            ),
-            // 스크롤 될곳
-            const MiddleSliverAppBar(),
+          headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
+            return <Widget>[
+              ScrollSliverAppBar(
+                scrollController: scrollController,
+                profileImage: Image.network(User.test().profileSrc, fit: BoxFit.fill),
+                username: User.test().username,
+                token: User.test().token,
+              ),
+              // 스크롤 될곳
+              const MiddleSliverAppBar(),
 
-            // 고정될곳
-            TabSliverAppBar(tabController: tabController),
-            SliverList(
-              delegate: SliverChildListDelegate([
-                Container(
-                  width: double.infinity,
-                  height: 400,
-                  color: Colors.blue,
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 400,
-                  color: Colors.green,
-                ),
-                Container(
-                  width: double.infinity,
-                  height: 400,
-                  color: Colors.green,
-                )
-              ]),
-            ),
-          ],
+              // 고정될곳
+              TabSliverAppBar(tabController: tabController),
+            ];
+          },
+          // 메인
+          body: TabBarView(
+            controller: tabController,
+            children: const [
+              TokenView(),
+              ArtView(),
+              GameView(),
+            ],
+          ),
         ));
   }
 }

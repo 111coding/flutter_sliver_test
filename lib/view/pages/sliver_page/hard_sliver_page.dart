@@ -6,6 +6,9 @@ import 'package:sliver_test/view/components/drawer/common_drawer.dart';
 import 'package:sliver_test/view/components/sliver/hard_sliver_app_bar.dart';
 import 'package:sliver_test/view/components/sliver/middle_sliver_app_bar.dart';
 import 'package:sliver_test/view/components/sliver/tab_sliver_app_bar.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/art_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/game_view.dart';
+import 'package:sliver_test/view/pages/sliver_page/component/token_view.dart';
 
 class HardSliverPage extends StatefulWidget {
   const HardSliverPage({Key? key}) : super(key: key);
@@ -44,21 +47,11 @@ class _HardSliverPageState extends State<HardSliverPage> with TickerProviderStat
         // 메인
         body: TabBarView(
           controller: tabController,
-          children: List.generate(
-              3,
-              (index) => ListView.builder(
-                    itemCount: 100,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Material(
-                        child: ListTile(
-                          leading: CircleAvatar(
-                            backgroundColor: Colors.blueGrey,
-                          ),
-                          title: Text("test"),
-                        ),
-                      );
-                    },
-                  )),
+          children: const [
+            TokenView(),
+            ArtView(),
+            GameView(),
+          ],
         ),
       ),
     );
