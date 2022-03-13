@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:sliver_test/route/app_router.dart';
 import 'package:sliver_test/route/app_routes.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_back.dart';
+import 'package:sliver_test/view/components/btn/mini_button.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   CommonAppBar({
     Key? key,
-    required this.title,
+    this.title = "",
+    this.titleWidget,
     this.backShown = true,
     this.xShown = false,
     this.xFill = false,
@@ -15,6 +17,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) : super(key: key);
 
   final String title;
+  final Widget? titleWidget;
   final bool backShown;
   final bool xShown;
   final bool xFill;
@@ -28,6 +31,9 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       color: Colors.white,
       child: Column(
         children: [
+          SizedBox(
+            height: MediaQuery.of(context).padding.top,
+          ),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
@@ -42,32 +48,24 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Expanded(
                     child: Container(
                       alignment: Alignment.centerLeft,
-                      child: Text(
-                        title,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
+                      child: titleWidget ??
+                          Text(
+                            title,
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          ),
                     ),
                   ),
                   if (xShown)
-                    GestureDetector(
+                    MiniButton(
+                      icon: const Icon(CupertinoIcons.xmark, size: 18),
                       onTap: () {
                         AppNavigator.pop();
                       },
-                      child: Container(
-                        width: 24,
-                        height: 24,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: xFill ? Colors.grey[300]! : null,
-                          border: Border.all(color: Colors.grey[300]!),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: const Icon(CupertinoIcons.xmark, size: 18),
-                      ),
+                      isFill: xFill,
                     ),
                 ],
               ),

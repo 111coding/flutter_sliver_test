@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/value.dart';
 import 'package:sliver_test/dummy_data/dummy_data.dart';
+import 'package:sliver_test/route/app_router.dart';
 import 'package:sliver_test/view/components/btn/more_button.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/art/collectable_grid.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/art/label_text.dart';
@@ -21,7 +22,11 @@ class ArtView extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 50),
           child: Column(
             children: [
-              LabelText(label: "Collectables", onTap: () {}),
+              LabelText(
+                  label: "Collectables",
+                  onTap: () {
+                    AppRouter.artDetailPage.push();
+                  }),
               CollectableGrid(collectables: DummyData.collectables),
               const SizedBox(height: 20),
               MoreButton(text: "${DummyData.collectables.length - 5} more Collectables", onTap: () {}),

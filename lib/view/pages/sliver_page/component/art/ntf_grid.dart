@@ -5,9 +5,14 @@ import 'package:sliver_test/domain/model/ntf.dart';
 import 'package:sliver_test/view/components/image/ntf_image.dart';
 
 class NtfGrid extends StatelessWidget {
-  const NtfGrid({Key? key, required this.ntfs}) : super(key: key);
+  const NtfGrid({
+    Key? key,
+    required this.ntfs,
+    this.maxLength = 5,
+  }) : super(key: key);
 
   final List<Ntf> ntfs;
+  final int maxLength;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class NtfGrid extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       padding: EdgeInsets.zero,
-      itemCount: min(5, ntfs.length),
+      itemCount: min(maxLength, ntfs.length),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 3,
         childAspectRatio: 0.8,
