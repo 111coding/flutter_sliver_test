@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/value.dart';
 import 'package:sliver_test/dummy_data/dummy_data.dart';
-import 'package:sliver_test/view/components/btn/grey_button.dart';
 import 'package:sliver_test/view/components/btn/more_button.dart';
-import 'package:sliver_test/view/components/sliver/line.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/art/collectable_grid.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/art/label_text.dart';
 import 'package:sliver_test/view/pages/sliver_page/component/art/ntf_grid.dart';
+import 'package:sliver_test/view/components/line.dart';
 
 class ArtView extends StatelessWidget {
   const ArtView({Key? key}) : super(key: key);

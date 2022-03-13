@@ -1,9 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:sliver_test/domain/model/collectable.dart';
 import 'package:sliver_test/domain/model/ntf.dart';
-import 'package:sliver_test/view/components/image/collectable_image.dart';
 import 'package:sliver_test/view/components/image/ntf_image.dart';
 
 class NtfGrid extends StatelessWidget {

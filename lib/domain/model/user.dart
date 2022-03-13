@@ -1,6 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:sliver_test/route/app_routes.dart';
-
 class User {
   String username;
   String token;

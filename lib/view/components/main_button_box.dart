@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/color_pallete.dart';
 import 'package:sliver_test/const/value.dart';

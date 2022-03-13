@@ -30,7 +30,7 @@ class SettingPageBody extends StatelessWidget {
                   style: const TextStyle(color: Colors.orange),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
-                      print("HERE");
+                      // TODO
                     }),
             ],
           ),

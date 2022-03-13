@@ -6,8 +6,8 @@ import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_scan.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
-import 'package:sliver_test/view/components/sliver/line.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
+import 'package:sliver_test/view/components/line.dart';
 
 class ScrollSliverAppBar extends StatefulWidget {
   const ScrollSliverAppBar({

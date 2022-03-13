@@ -1,9 +1,6 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:sliver_test/const/color_pallete.dart';
-import 'package:sliver_test/view/components/image/profile_image.dart';
 
 class TokenClipboardBox extends StatelessWidget {
   const TokenClipboardBox({Key? key, required this.token}) : super(key: key);

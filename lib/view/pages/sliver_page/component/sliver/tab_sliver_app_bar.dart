@@ -55,8 +55,8 @@ class _TabSliverDelegate extends SliverPersistentHeaderDelegate {
             children: [
               Container(
                 width: double.infinity,
-                height: 3,
-                color: Colors.grey,
+                height: 2.5,
+                color: Colors.grey[400],
                 margin: const EdgeInsets.symmetric(horizontal: 24),
               ),
               Container(

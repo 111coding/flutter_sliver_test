@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:sliver_test/route/app_router.dart';
 import 'package:sliver_test/route/app_routes.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_back.dart';
-import 'package:sliver_test/view/components/btn/icon_btn_edit.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   CommonAppBar({
@@ -86,5 +85,5 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size preferredSize = Size.fromHeight(60 + MediaQuery.of(navigatorKey.currentContext!).padding.top);
+  final Size preferredSize = Size.fromHeight(60 + MediaQuery.of(navigatorKey.currentContext!).padding.top);
 }

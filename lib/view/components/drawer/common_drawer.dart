@@ -1,14 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:sliver_test/const/color_pallete.dart';
 import 'package:sliver_test/route/app_router.dart';
 import 'package:sliver_test/view/components/btn/grey_button.dart';
-import 'package:sliver_test/view/components/btn/icon_btn_back.dart';
-import 'package:sliver_test/view/components/btn/icon_btn_edit.dart';
 import 'package:sliver_test/view/components/drawer/common_drawer_header.dart';
-import 'package:sliver_test/view/components/image/profile_image.dart';
 
 class CommonDrawer extends StatelessWidget {
   const CommonDrawer({

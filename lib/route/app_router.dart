@@ -6,6 +6,7 @@ enum AppRouter {
   easySliverPage,
   hardSliverPage,
   settingPage,
+  artDetailPage,
 }
 
 class AppNavigator {

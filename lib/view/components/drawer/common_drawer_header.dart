@@ -1,9 +1,4 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:sliver_test/const/color_pallete.dart';
-import 'package:sliver_test/view/components/btn/icon_btn_back.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_edit.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 

@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/view/components/common_app_bar.dart';
+import 'package:sliver_test/view/pages/art_detail_page/component/art_detail_body.dart';
 
-import 'package:sliver_test/view/pages/setting_page/component/setting_page_body.dart';
-
-class SettingPage extends StatefulWidget {
-  const SettingPage({Key? key}) : super(key: key);
+class ArtDetailPage extends StatefulWidget {
+  const ArtDetailPage({Key? key}) : super(key: key);
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
+  State<ArtDetailPage> createState() => _ArtDetailPageState();
 }
 
-class _SettingPageState extends State<SettingPage> {
+class _ArtDetailPageState extends State<ArtDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,7 +20,7 @@ class _SettingPageState extends State<SettingPage> {
         xFill: true,
         underLineShown: true,
       ),
-      body: const SettingPageBody(),
+      body: const ArtDetailBody(),
     );
   }
 }

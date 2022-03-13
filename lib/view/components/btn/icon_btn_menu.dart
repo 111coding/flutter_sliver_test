@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sliver_test/route/app_router.dart';
-import 'package:sliver_test/route/app_routes.dart';
 import 'package:sliver_test/view/components/btn/asset_button.dart';
 
 class IconBtnMenu extends AssetButton {
@@ -13,9 +11,6 @@ class IconBtnMenu extends AssetButton {
 
   @override
   void onTap() {
-    // TODO 햄버거
-    print("햄버거");
-
     scaffoldKey.currentState?.openEndDrawer();
   }
 }
