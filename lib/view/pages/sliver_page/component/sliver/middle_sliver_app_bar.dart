@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/color_pallete.dart';
 import 'package:sliver_test/const/value.dart';
+import 'package:sliver_test/dummy_data/dummy_data.dart';
 import 'package:sliver_test/view/components/main_button_box.dart';
 
 class MiddleSliverAppBar extends StatelessWidget {
@@ -9,28 +10,39 @@ class MiddleSliverAppBar extends StatelessWidget {
   }) : super(key: key);
 
   Widget _coinBox() {
+    var coin = DummyData.tokens.first;
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: ConstValue.maxWidth),
       child: Row(
         children: [
-          Container(width: 50, height: 50, color: Colors.white),
+          SizedBox(
+            width: 50,
+            height: 50,
+            child: Image.asset(
+              coin.iconSrc,
+              color: Colors.white,
+            ),
+          ),
           const SizedBox(width: 6),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                "100.13 Klay",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
+                "${coin.amount} ${coin.name}",
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              SizedBox(height: 3),
+              const SizedBox(height: 3),
               Text(
-                "142.13 USD",
-                style: TextStyle(color: Colors.white, fontSize: 13),
+                "${coin.price} ${coin.unit}",
+                style: const TextStyle(color: Colors.white, fontSize: 13),
               ),
             ],
           ),
           const Spacer(),
-          Container(color: Colors.white, width: 24, height: 24),
+          const Icon(
+            Icons.navigate_next,
+            color: Colors.white,
+          ),
         ],
       ),
     );
