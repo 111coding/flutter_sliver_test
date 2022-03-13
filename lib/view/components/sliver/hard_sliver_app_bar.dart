@@ -6,6 +6,7 @@ import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_scan.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
+import 'package:sliver_test/view/components/sliver/line.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
 
 class HardSliverAppBar extends StatelessWidget {
@@ -178,13 +179,12 @@ class _HardSliverAppBarDelegate extends SliverPersistentHeaderDelegate {
           ),
 
           // LINE
+
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              color: Colors.grey[50],
-              width: double.infinity,
-              height: offset == 1 ? 0 : 1,
               margin: EdgeInsets.only(left: paddingLeft, right: paddingRight),
+              child: Line(height: offset == 1 ? 0 : 1),
             ),
           ),
         ],

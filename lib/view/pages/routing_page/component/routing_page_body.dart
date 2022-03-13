@@ -7,7 +7,8 @@ class RoutingPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
+    return ListView.separated(
+      separatorBuilder: (context, index) => const SizedBox(height: 10),
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10),
       itemCount: AppRouter.values.length,
       itemBuilder: (context, index) {

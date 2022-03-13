@@ -6,6 +6,7 @@ import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_scan.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
+import 'package:sliver_test/view/components/sliver/line.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
 
 class ScrollSliverAppBar extends StatefulWidget {
@@ -124,7 +125,10 @@ class _ScrollSliverAppBarState extends State<ScrollSliverAppBar> {
               SizedBox(height: 8 * _appbarOffset),
               TokenClipboardBox(token: widget.token),
               const SizedBox(height: 20),
-              Container(color: Colors.grey[50], width: double.infinity, height: 1),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 24),
+                child: Line(),
+              ),
             ],
           ),
         ),

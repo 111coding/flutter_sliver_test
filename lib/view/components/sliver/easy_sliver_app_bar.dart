@@ -2,10 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:sliver_test/const/color_pallete.dart';
+import 'package:sliver_test/const/value.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_menu.dart';
 import 'package:sliver_test/view/components/btn/icon_btn_scan.dart';
 import 'package:sliver_test/view/components/image/profile_image.dart';
 import 'package:sliver_test/view/components/protfolio_text.dart';
+import 'package:sliver_test/view/components/sliver/line.dart';
 import 'package:sliver_test/view/components/token_clipboard_box.dart';
 
 class EasySliverAppBar extends StatelessWidget {
@@ -152,7 +154,7 @@ class _EasySliverAppBarDelegate extends SliverPersistentHeaderDelegate {
                     SizedBox(height: 8 * offset),
                     TokenClipboardBox(token: token),
                     const SizedBox(height: 20),
-                    Container(color: Colors.grey[50], width: double.infinity, height: 1),
+                    const Line(),
                   ],
                 ),
               ),
