@@ -22,7 +22,7 @@ class NtfGrid extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 24),
       child: LayoutBuilder(
         builder: (context, constraints) {
-          int renderCount = (constraints.maxWidth / 150).floor();
+          int renderCount = (constraints.maxWidth / 120).floor();
           int renderCountMin = max(3, renderCount);
           return GridView.builder(
             physics: const NeverScrollableScrollPhysics(),
