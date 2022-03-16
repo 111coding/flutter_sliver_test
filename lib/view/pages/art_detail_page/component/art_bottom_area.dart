@@ -23,49 +23,48 @@ class ArtBottomArea extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int temp = (MediaQuery.of(context).size.width / 80).floor();
+    int count = max(5, temp);
+
     return Container(
       height: height,
       color: Colors.white,
       child: PageView.builder(
         onPageChanged: onPageChanged,
-        itemCount: (datas.length / 5).ceil(),
+        itemCount: (datas.length / count).ceil(),
         itemBuilder: (context, pageIndex) {
-          return Column(
-            children: [
-              GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: EdgeInsets.zero,
-                itemCount: min(5, datas.length),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 5,
-                  childAspectRatio: 0.8,
-                  mainAxisExtent: height, // 세로 최대크기
-                ),
-                itemBuilder: (BuildContext context, int index) {
-                  int absIndex = index + pageIndex * 5;
-                  var c = datas[absIndex];
-                  return Column(
-                    children: [
-                      Line(color: absIndex == currentIndex ? Colors.black : Colors.grey),
-                      Expanded(
-                        child: Center(
-                          child: GestureDetector(
-                            onTap: () {
-                              onItemTap(absIndex);
-                            },
-                            child: SizedBox(
-                              width: 40,
-                              child: CollectableImage.asset(c.ntfs.first.imgSrc),
-                            ),
-                          ),
+          return GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            padding: EdgeInsets.zero,
+            itemCount: min(count, datas.length),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: count,
+              childAspectRatio: 0.8,
+              mainAxisExtent: height, // 세로 최대크기
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              int absIndex = index + pageIndex * count;
+              var c = datas[absIndex];
+              return Column(
+                children: [
+                  Line(color: absIndex == currentIndex ? Colors.black : Colors.grey),
+                  Expanded(
+                    child: Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          onItemTap(absIndex);
+                        },
+                        child: SizedBox(
+                          width: 40,
+                          child: CollectableImage.asset(c.ntfs.first.imgSrc),
                         ),
-                      )
-                    ],
-                  );
-                },
-              )
-            ],
+                      ),
+                    ),
+                  )
+                ],
+              );
+            },
           );
         },
       ),
